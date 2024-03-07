@@ -11,17 +11,17 @@ variable "port_mapping" {
     object(
       {
         container_port = string,
-        host_port = string,
-        protocol = string
+        host_port      = string,
+        protocol       = string
       }
     )
   )
   description = "A list of maps of ports to be deployed for the container"
-  default = null
+  default     = null
 }
 
 variable "ip_address" {
   description = "IP address of the container, used in port mapping if its required"
-  default = "0.0.0.0"
+  default     = "0.0.0.0"
 }
 // Add other input variables as needed

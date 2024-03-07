@@ -12,6 +12,7 @@ resource "docker_container" "my_container" {
       external = ports.value["host_port"]
       internal = ports.value["container_port"]
       protocol = ports.value["protocol"]
+      ip       = var.ip_address
     }
   }
 
