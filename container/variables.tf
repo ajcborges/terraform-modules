@@ -6,12 +6,22 @@ variable "image_name" {
   description = "Name of the Docker image"
 }
 
-variable "container_port" {
-  description = "Port to expose in the container"
+variable "port_mapping" {
+  type = list(
+    object(
+      {
+        container_port = string,
+        host_port = string,
+        protocol = string
+      }
+    )
+  )
+  description = "A list of maps of ports to be deployed for the container"
+  default = null
 }
 
-variable "host_port" {
-  description = "Port to expose on the host"
+variable "ip_address" {
+  description = "IP address of the container, used in port mapping if its required"
+  default = "0.0.0.0"
 }
-
 // Add other input variables as needed
