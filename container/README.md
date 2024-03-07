@@ -1,14 +1,22 @@
 Now, in your main Terraform configuration where you want to use this module, you can reference it like this:
 ```
-module "project" {
+module "container" {
   source = "git::https://github.com/homelab/terraform-modules.git//container?ref=container/6.0.0"
 
-  docker_initial_name = "docker-${var.suffix}"
-  image_name          = "your_docker_image:tag"
-  container_port      = 8080
-  host_port           = 8080
-  // other variables needed by your module
+  docker_initial_name = "test"
+  image_name          = "pihole/pihole:latest"
+  port_mapping = [{
+    container_port = "80"
+    host_port      = "8080"
+    protocol       = "tcp"
+    },
+    {
+      container_port = "53"
+      host_port      = "53"
+      protocol       = "udp"
+  }]
 }
+
 ```
 Remember to replace "your_docker_image:tag" with the actual image name and tag you want to use, and adjust other variables as per your requirements.
 
