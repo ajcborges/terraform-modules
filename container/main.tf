@@ -16,5 +16,14 @@ resource "docker_container" "my_container" {
     }
   }
 
-  // Other configurations like environment variables, volumes, etc.
+dynamic "volumes" {
+    for_each = var.named_volumes
+    content {
+      volume_name    = volumes.key
+      container_path = volumes.value.container_path
+      read_only      = volumes.value.read_only
+    }
+  }
+
+  // Other configurations like environment variables, etc.
 }
