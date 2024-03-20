@@ -20,6 +20,31 @@ variable "port_mapping" {
   default     = null
 }
 
+variable "named_volumes" {
+  description = "Mount named volumes"
+  type = map(object({
+    container_path = string
+    read_only      = bool
+    create         = bool
+  }))
+  default = {}
+}
+
+variable "host_paths" {
+  description = "Mount host paths"
+  type = map(object({
+    container_path = string
+    read_only      = bool
+  }))
+  default = {}
+}
+
+variable "volumes_from_containers" {
+  description = "Mount volumes from another container"
+  type        = list(any)
+  default     = null
+}
+
 variable "ip_address" {
   description = "IP address of the container, used in port mapping if its required"
   default     = "0.0.0.0"
