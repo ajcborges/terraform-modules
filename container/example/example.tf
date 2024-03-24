@@ -1,29 +1,30 @@
 module "container" {
   source = "../"
 
-  docker_initial_name = "test"
-  image_name          = "pihole/pihole:latest"
-  port_mapping = [{
-    container_port = "80"
-    host_port      = "8080"
-    protocol       = "tcp"
-    },
-    {
-      container_port = "53"
-      host_port      = "53"
-      protocol       = "udp"
+  image          = "portainer/portainer-ce"
+  container_name = "portainer"
+  hostname       = "portainer-srv"
+  restart_policy = "always"
+  ports = [{
+    external = "9443"
+    internal = "9443"
+    protocol = "tcp"
   }]
-}
 
-provider "docker" {
-  host = "unix:///var/run/docker.sock"
-}
-
-terraform {
-  required_providers {
-    docker = {
-      source  = "kreuzwerker/docker"
-      version = ">=3.0.2"
+  named_volumes = {
+    "portainer_data" = {
+      container_path = "/opt/portainer/data"
+      read_only      = false
+      create         = true
     }
   }
+
+  host_paths = {
+    "/mnt/containers/portainer" = {
+      container_path = "/opt/portainer/"
+      read_only      = false
+    }
+  }
+
+
 }
