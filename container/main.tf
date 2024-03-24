@@ -16,30 +16,5 @@ resource "docker_container" "my_container" {
     }
   }
 
-dynamic "volumes" {
-    for_each = var.named_volumes
-    content {
-      volume_name    = volumes.key
-      container_path = volumes.value.container_path
-      read_only      = volumes.value.read_only
-    }
-  }
-
-  dynamic "volumes" {
-    for_each = var.host_paths
-    content {
-      host_path      = volumes.key
-      container_path = volumes.value.container_path
-      read_only      = volumes.value.read_only
-    }
-  }
-
-  dynamic "volumes" {
-    for_each = var.volumes_from_containers == null ? [] : var.volumes_from_containers
-    content {
-      from_container = volumes.value
-    }
-  }
-
-  // Other configurations like environment variables, etc.
+  // Other configurations like environment variables, volumes, etc.
 }
