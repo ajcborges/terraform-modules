@@ -1,36 +1,3 @@
-### version.tf variables
-
-variable "proxmox_api_url" {
-  description = "This is the target Proxmox API endpoint."
-  type        = string
-}
-
-variable "proxmox_api_token_id" {
-  description = "This is an API token you have previously created for a specific user."
-  type        = string
-}
-
-variable "proxmox_api_token_secret" {
-  description = "This uuid is only available when the token was initially created."
-  type        = string
-}
-
-variable "proxmox_user" {
-  description = "The user, remember to include the authentication realm such as myuser@pam or myuser@pve."
-  type        = string
-}
-
-variable "proxmox_password" {
-  description = "The password."
-  type        = string
-}
-
-variable "proxmox_tls_insecure" {
-  description = "Disable TLS verification while connecting to the proxmox server."
-  type        = bool
-  default     = true
-}
-
 ### main.tf variables
 
 variable "proxmox_node" {
