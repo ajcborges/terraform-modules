@@ -59,6 +59,6 @@ EOF
     bridge   = "vmbr0"                                        # The bridge to attach the network interface to
     ip       = join("", ["192.168.30.", var.lxc_vmid, "/24"]) # The IPv4 address of the network interface. Can be a static IPv4 address (in CIDR notation).
     firewall = var.lxc_firewall                               # A boolean to enable the firewall on the network interface.
-    gw       = "192.168.10.254"                               # The IPv4 address belonging to the network interface's default gateway.
+    gw       = "192.168.30.254"                               # The IPv4 address belonging to the network interface's default gateway.
   }
 }
