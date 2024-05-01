@@ -1,7 +1,8 @@
-# Proxmox LXC 
+# Proxmox LXC
 
 An LXC deployment with a `static` ip address that utilizes the VMID as the final octet of the ip address, which is then assigned to the LXC.
 
+- Inputs variables are managed via `tfvar` file. See [Input Section](https://github.com/ajcborges/terraform-modules/blob/main/proxmox_lxc/README.md#inputs) below
 - `eth0` is the default name for the network interface.
 - `vmbr0` is the default name for the bridge  attach the network interface.
 - `192.168.30.0/24` is the default subnet.
@@ -30,7 +31,6 @@ terraform apply filename.tfplan
 |------|---------|
 | terraform | >=1.3.3|
 | telmate/proxmox | >=2.9.14 |
-
 
 ## Inputs
 
