@@ -58,6 +58,11 @@ variable "command" {
   type        = list(string)
   default     = null
 }
+variable "labels" {
+  description = "Override the default labels"
+  type        = list(string)
+  default     = null
+}
 variable "ports" {
   description = "Expose ports"
   type = list(object({
