@@ -48,6 +48,7 @@ resource "docker_container" "default" {
   dns          = var.dns
   entrypoint   = var.entrypoint
   command      = var.command
+  labels       = var.labels
   env          = var.environment != null ? [for k, v in var.environment : "${k}=${v}"] : null
 
   dynamic "ports" {
