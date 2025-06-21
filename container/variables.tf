@@ -59,9 +59,8 @@ variable "command" {
   default     = null
 }
 variable "labels" {
-  description = "Override the default labels"
-  type        = list(string)
-  default     = null
+  type    = map(string)
+  default = {}
 }
 variable "ports" {
   description = "Expose ports"
