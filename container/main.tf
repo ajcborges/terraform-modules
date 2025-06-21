@@ -50,6 +50,8 @@ resource "docker_container" "default" {
   command      = var.command
   env          = var.environment != null ? [for k, v in var.environment : "${k}=${v}"] : null
 
+  depends_on = var.existing_image != null ? [] : [docker_image.default]
+
   dynamic "labels" {
     for_each = var.labels == null ? {} : var.labels
     content {
