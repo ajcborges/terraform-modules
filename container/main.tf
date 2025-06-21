@@ -13,6 +13,10 @@ resource "docker_image" "default" {
   count         = var.image == null ? 0 : 1
   name          = data.docker_registry_image.default[0].name
   pull_triggers = [data.docker_registry_image.default[0].sha256_digest]
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "docker_volume" "default" {
