@@ -5,12 +5,12 @@ This ```container``` module is a terraform module that setup a container up.
 ## Module Features
 This Module allows you to create a container with the relevant information passed using variables.
 ## Compatibility
-This module is meant for use with Terraform 0.12.
+This module is meant for use with Terraform 1.3.3.
 This module has been tested with the following terraform version and provider versions:
 | Software Component | Version |
 |-|-|
-| Terraform Version | `0.12.29` |
-| Provider: `kreuzwerker/docker` | `3.0.2` |
+| Terraform Version | `1.3.3` |
+| Provider: `kreuzwerker/docker` | `3.6.2` |
 
 ## Usage
 
@@ -39,6 +39,7 @@ Below is a manual attempt at listing the recent changes.  Should probably move t
 | Date | Release | Description |
 |------|---------|-------------|
 | March 2024 | `container/1.0.0` | initial release of the code  |
+| June 2025 | `container/2.0.0` | update terraform providers  |
 
 ---
 
