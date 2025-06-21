@@ -16,7 +16,7 @@ This module has been tested with the following terraform version and provider ve
 
 ```hcl
 module "container" {
-  source = "git::https://github.com/ajcborges/terraform-modules.git//container?ref=container/1.0.0"
+  source = "git::https://github.com/ajcborges/terraform-modules.git//container?ref=container/2.0.0"
 
   docker_initial_name = var.docker_name
   image_name          = var.docker_image
